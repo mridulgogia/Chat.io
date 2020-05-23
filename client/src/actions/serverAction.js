@@ -13,7 +13,7 @@ import axios from "axios";
 export const getServers = () => (dispatch) => {
   dispatch(setServersLoading());
   axios
-    .get("http://localhost:5000/server")
+    .get("/server")
     .then((res) => {
       dispatch({
         type: GET_SERVERS,
@@ -33,12 +33,12 @@ export const deleteServer = (serverID) => (dispatch) => {
     type: DELETE_SERVER,
     payload: serverID,
   });
-  axios.post("http://localhost:5000/server", { serverID: serverID });
+  axios.post("/server", { serverID: serverID });
 };
 
 export const createServer = (serverInfo) => (dispatch) => {
   axios
-    .post("http://localhost:5000/server/create", serverInfo)
+    .post("/server/create", serverInfo)
     .then((res) => {
       dispatch({
         type: CREATE_SERVER,
@@ -62,7 +62,7 @@ export const setServersLoading = () => {
 export const setSelectedChannel = (dataObject, selectedServer) => (
   dispatch
 ) => {
-  axios.post("http://localhost:5000/server/channel", dataObject).then(() => {
+  axios.post("/server/channel", dataObject).then(() => {
     dispatch({
       type: SET_SELECTED_CHANNEL,
       payload: {
@@ -85,7 +85,7 @@ export const updateUsers = (serverID, userID, userStatus) => (dispatch) => {
 };
 
 export const addUser = (serverID, userID) => (dispatch) => {
-  axios.post("http://localhost:5000/user/info", { id: userID }).then((user) => {
+  axios.post("/user/info", { id: userID }).then((user) => {
     const userInfo = user.data.info;
     dispatch({
       type: ADD_USER,

@@ -143,7 +143,7 @@ class Dashboard extends Component {
     }
   }
   componentDidMount() {
-    this.socket = window.io.connect("http://localhost:5000");
+    this.socket = window.io.connect("");
     this.socket.emit("registerUser", this.props.auth.user.id);
     this.socket.on("profileUpdate", (data) => {
       const { id, profilePicture } = data;

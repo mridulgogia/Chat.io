@@ -43,7 +43,7 @@ class Channels extends Component {
     const { servers } = this.props.servers;
     const thisServer = servers[selectedServer]._id;
     this.modalClose();
-    axios.post("http://localhost:5000/channel/create", {
+    axios.post("/channel/create", {
       channelName: this.state.channelName,
       channelType: this.state.channelType,
       serverID: thisServer,

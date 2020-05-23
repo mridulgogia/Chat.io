@@ -32,7 +32,7 @@ export const setMessagesLoading = () => {
 export const getMessages = (channelID) => (dispatch) => {
   dispatch(setMessagesLoading());
   axios
-    .post("http://localhost:5000/channel/message", { channelID: channelID })
+    .post("/channel/message", { channelID: channelID })
     .then((res) => {
       dispatch({
         type: GET_CHANNEL_MESSAGES,
@@ -49,7 +49,7 @@ export const getMessages = (channelID) => (dispatch) => {
 
 export const sendMessage = (channelID, message) => (dispatch) => {
   axios
-    .post("http://localhost:5000/channel/message/send", {
+    .post("/channel/message/send", {
       channelID: channelID,
       message: message,
     })

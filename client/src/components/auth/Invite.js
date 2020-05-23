@@ -21,7 +21,7 @@ class Invite extends Component {
       const location = this.props.location.pathname.split("/");
       const id = location[location.length - 1];
       axios
-        .post("http://localhost:5000/server/join", { id: id })
+        .post("/server/join", { id: id })
         .then((join) => {
           if (join.data.success) {
             this.props.history.push({
@@ -42,11 +42,11 @@ class Invite extends Component {
     const location = this.props.location.pathname.split("/");
     const id = location[location.length - 1];
     axios
-      .post("http://localhost:5000/server/invite/validate", { id: id })
+      .post("/server/invite/validate", { id: id })
       .then((res) => {
         if (res.data.valid) {
           axios
-            .post("http://localhost:5000/server/info", { id: id })
+            .post("/server/info", { id: id })
             .then((res) => {
               this.setState({ serverData: res.data });
               this.setState({ inviteStatusLoading: false });

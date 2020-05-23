@@ -27,7 +27,7 @@ class MemberProfile extends Component {
         (dm) => dm.user._id === this.props.userData.id
       ).length === 0
     ) {
-      axios.post("http://localhost:5000/user/dm/add", {
+      axios.post("/user/dm/add", {
         receiverID: this.props.userData.id,
       });
     }

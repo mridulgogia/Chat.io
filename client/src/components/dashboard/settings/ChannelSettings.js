@@ -12,7 +12,7 @@ class ChannelSettings extends Component {
   }
   deleteChannel() {
     const { subViewData } = this.props.currentView;
-    axios.post("http://localhost:5000/channel/delete", {
+    axios.post("/channel/delete", {
       serverID: subViewData.serverID,
       channelID: subViewData.id,
     });

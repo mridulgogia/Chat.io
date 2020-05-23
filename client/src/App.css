@@ -270,6 +270,7 @@
   height: 12vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .notification {
@@ -379,6 +380,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 
 .edit {

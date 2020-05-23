@@ -58,7 +58,7 @@ class ChatInput extends Component {
     const { view, subViewData } = this.props.currentView;
     if (view !== "server") {
       const dm = this.props.user.directMessages[subViewData.selectedDM];
-      axios.post("http://localhost:5000/user/message/send", {
+      axios.post("/user/message/send", {
         conversationID: dm.conversation,
         message: this.state.image,
         receiver: dm.user._id,
@@ -109,7 +109,7 @@ class ChatInput extends Component {
       const { servers } = this.props.servers;
       if (view !== "server") {
         const dm = this.props.user.directMessages[subViewData.selectedDM];
-        axios.post("http://localhost:5000/user/message/send", {
+        axios.post("/user/message/send", {
           conversationID: dm.conversation,
           message: this.state.message,
           receiver: dm.user._id,

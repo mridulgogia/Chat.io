@@ -18,7 +18,7 @@ class UrlEmbed extends Component {
   }
   componentDidMount() {
     axios
-      .post("http://localhost:5000/channel/message/meta", {
+      .post("/channel/message/meta", {
         url: this.props.url,
       })
       .then((res) => {

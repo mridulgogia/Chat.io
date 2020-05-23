@@ -16,7 +16,7 @@ import { setMessagesLoading } from "./channelAction";
 export const getUserData = () => (dispatch) => {
   dispatch(setUserDataLoading());
   axios
-    .get("http://localhost:5000/user")
+    .get("/user")
     .then((res) => {
       dispatch({
         type: GET_USER_DATA,
@@ -37,12 +37,12 @@ export const changeMediaStatus = (mediaStatus) => (dispatch) => {
     payload: mediaStatus,
   });
   let status = Object.keys(mediaStatus)[0];
-  axios.post("http://localhost:5000/user/set/media", { [status]: true });
+  axios.post("/user/set/media", { [status]: true });
 };
 
 export const setStatus = (newStatus, userID) => (dispatch) => {
   axios
-    .post("http://localhost:5000/user/set/status", { status: newStatus })
+    .post("/user/set/status", { status: newStatus })
     .then(() => {
       dispatch({
         type: SET_USER_STATUS,
@@ -88,7 +88,7 @@ export const updateProfile = (
   newEmail = ""
 ) => (dispatch) => {
   axios
-    .post("http://localhost:5000/user/profile/update", {
+    .post("/user/profile/update", {
       username: newUsername,
       email: newEmail,
       profilePicture: newProfilePicture,
@@ -117,7 +117,7 @@ export const addDMUser = (data) => (dispatch) => {
 export const getMessages = (id) => (dispatch) => {
   dispatch(setMessagesLoading());
   axios
-    .post("http://localhost:5000/user/message", { conversationID: id })
+    .post("/user/message", { conversationID: id })
     .then((res) => {
       dispatch({
         type: GET_CHANNEL_MESSAGES,

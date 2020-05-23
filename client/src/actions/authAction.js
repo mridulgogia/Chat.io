@@ -5,7 +5,7 @@ import setAuthToken from "../utils/setAuthToken";
 
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post("http://localhost:5000/user/register", userData)
+    .post("/user/register", userData)
     .then(() => {
       dispatch({
         type: GET_ERRORS,
@@ -23,7 +23,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post("http://localhost:5000/user/login", userData)
+    .post("/user/login", userData)
     .then((res) => {
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
